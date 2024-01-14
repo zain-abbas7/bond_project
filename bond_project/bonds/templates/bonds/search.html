@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bond Search</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+ <!-- ... Previous Bootstrap includes ... -->
+<!-- ... Previous Bootstrap and other includes ... -->
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Bond Search</h4>
+            </div>
+
+<!-- ... Previous HTML content ... -->
+
+<form action="{% url 'search_bond' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="bond_number">Enter Bond Number:</label>
+        <input type="text" id="bond_number" name="bond_number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="denomination">Select Bond Denomination:</label>
+        <select id="denomination" name="denomination" class="form-control">
+            <option value="100">PKR 100</option>
+            <option value="200">PKR 200</option>
+            <option value="750">PKR 750</option>
+            <option value="1500">PKR 1500</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Search</button>
+</form>
+
+<!-- ... Remaining HTML content ... -->
+                <div class="mt-4">
+                    <p class="text-center lead">{{ message }}</p>
+                    {% if bond_number %}
+                    <p class="text-center">Bond Number: {{ bond_number }}</p>
+                    <p class="text-center">Denomination: {{ denomination }}</p>
+                    <p class="text-center">Draw Date: {{ draw_date }}</p>
+                    <p class="text-center">Prize Won: {{ prize_won }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- ... Rest of the Bootstrap includes ... -->
+       
+
+<!-- Bootstrap JavaScript and Popper.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
